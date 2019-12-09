@@ -1,0 +1,27 @@
+<html>
+<div th:switch="${sykkeler}">
+    <h2 th:case="null">Ingen SykkelInformasjon</h2>
+    <div th:case="*">
+        <h2>Stativ Status</h2>
+        <table border="1">
+            <thead>
+            <tr>
+                <th bgcolor="aqua" align="center">Name</th>
+                <th bgcolor="aqua" align="center">Address</th>
+                <th bgcolor="aqua" align="center">Capacity</th>
+                <th bgcolor="aqua" align="center">Tilgjengelig Sykkeler</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="sykkel : ${sykkeler}">
+                <td align="center" th:text="${sykkel.name}"></td>
+                <td align="center" th:text="${sykkel.address}"></td>
+                <td align="center" th:text="${sykkel.capacity}"></td>
+                <td align="center" th:text="${sykkel.num_bikes_available}"></td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</html>
